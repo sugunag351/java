@@ -7,6 +7,12 @@ public class pattern6
         int n=5;
         for(int r=1;r<=n;r++)
         {
+            int a=n-r;
+            while(a>0)
+            {
+                System.out.print(" ");
+                a--;
+            }
             for(int c=1;c<=r;c++)
             {
                System.out.print("*");
