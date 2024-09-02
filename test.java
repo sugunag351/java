@@ -1,72 +1,68 @@
-package userdefinedStackClassPractice;
-
-class stackoverflowException extends RuntimeException
+package abstractClassPractice;
+abstract class shape
 {
-    public String toString()
-    {
-        return "your stack is full";
-    }
-
+   abstract double perimeter();
+   abstract double  area();
 }
-class stackunderflowException extends RuntimeException
-{
-    public String toString()
+class circle extends shape{
+    double radius;
+    circle()
     {
-       return "your stack is empty";
+        radius=1;
     }
-
-}
-class stack
-{
-    int size;
-    int top=-1;
-    int s[];
-    public stack(int sz)
+    circle(int r)
     {
-       size=sz;
-       s=new int[sz];
+        radius=r;
     }
-    public void push(int x)throws stackoverflowException
+    double  perimeter()
     {
-        if(top==size-1)
-        {
-            throw new stackoverflowException();
-        }
-        else {
-            top++;
-            s[top]=x;
-        }
+        return 2*Math.PI*radius;
     }
-    public void pop()throws stackunderflowException
+    double area()
     {
-
-        if(top==-1)
-        {
-            throw new stackunderflowException();
-        }
-        else {
-
-            top--;
-            System.out.println(s[top]);
-        }
+        return Math.PI*radius*radius;
     }
 }
-
-public class test {
+class rectangle extends shape{
+    double length;
+    double breadth;
+    rectangle()
+    {
+        length=1;
+        breadth=1;
+    }
+    rectangle(int l,int b)
+    {
+        length=l;
+        breadth=b;
+    }
+    double perimeter()
+    {
+        return 2*(length+breadth);
+    }
+    double area()
+    {
+        return length*breadth;
+    }
+}
+public class test
+{
     public static void main(String args[])
     {
-       stack a=new stack(5);
-       try {
-           a.pop();
-       }
-       catch(stackunderflowException e)
-       {
-           System.out.println(e);
-       }
+       shape c=new circle();
+       System.out.println(c.perimeter());
+       System.out.println(c.area());
 
+       shape c1=new circle(10);
+       System.out.println(c1.perimeter());
+       System.out.println(c1.area());
 
+        shape r=new rectangle();
+        System.out.println(r.perimeter());
+        System.out.println(r.area());
 
+        shape r1=new rectangle(10,20);
+        System.out.println(r1.perimeter());
+        System.out.println(r1.area());
     }
-
 }
-
