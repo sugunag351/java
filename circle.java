@@ -1,22 +1,38 @@
-package methods;
+package circle;
+class my {
+    public double radius;
 
-import java.util.Scanner;
+    public double area() {
+        return Math.PI * radius * radius;
+    }
 
-public class circle
-{
-    static double area(int r)
-    {
-        return 3.14*r*r;
+    public double perimeter() {
+        return 2 * Math.PI * radius;
     }
-    static double circumference(int r)
-    {
-        return 2*3.14*r;
+        public double circumference()
+        {
+            return perimeter();
+        }
+
     }
-    public  static void main(String[] args)
+    public class circle
     {
-        Scanner s=new Scanner(System.in);
-        int radius=s.nextInt();
-        System.out.println("area of circle is:"+area(radius));
-        System.out.println("circumference of circle is:"+circumference(radius));
+        public static void main(String args[])
+        {
+            my t1=new my();
+            my t2=new my();
+            t1.radius=7;
+            t2.radius=14;
+            System.out.println("area:"+t1.area());
+            System.out.println("perimeter:"+t1.perimeter());
+            System.out.println("circumference:"+t1.circumference());
+
+            System.out.println("area:"+t2.area());
+            System.out.println("perimeter"+t2.perimeter());
+            System.out.println("circumferenece:"+t2.circumference());
+
+        }
+
     }
-}
+
+
