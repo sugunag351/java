@@ -1,32 +1,18 @@
-package enums;
-enum dept
+package fileClass;
+
+import java.io.File;
+
+public class test
 {
-    CS("john","block A"),IT("suguna","block B"),CIVIL("sindhu","block C"),ECE("sounjanya","block d");
-   String name;
-    String location;
-    dept(String name,String location)
+    public static void main(String args[])
     {
-        this.name=name;
-        this.location=location;
-    }
-    public String getname()
-    {
-        return name;
-    }
-    public String getLocation()
-    {
-        return location;
-    }
-
-}
-public class test {
-    public static void main(String a[])
-    {
-
-      dept d=dept.IT;
-      System.out.println(d.getname());
-        System.out.println(d.getLocation());
-
+        File f=new File("c:/users/dell/myjava");
+        System.out.println(f.isDirectory());
+        String list[]=f.list();
+        for(String x:list)
+        {
+            System.out.println(x);
+        }
 
     }
 }
