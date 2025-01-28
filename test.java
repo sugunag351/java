@@ -1,29 +1,21 @@
-package LambdaExpressions;
-interface mylambda
-{
-    public void  display();
-}
-class uselambda
-{
-    public void calllambda(mylambda ml)
-    {
-        ml.display();
-    }
-}
-class demo
-{
-    public void method1()
-    {
-       uselambda ul=new uselambda();
-       ul.calllambda(()->{System.out.println("hello");});
-    }
-
-}
+package SequenceInputStream;
+import java.io.*;
 public class test
 {
-    public static void main(String args[])
+    public static void main(String args[])throws Exception
     {
-       demo d=new demo();
-       d.method1();
+        FileInputStream fis1=new FileInputStream("c:/users/dell/myjava/my.txt");
+        FileInputStream fis2=new FileInputStream("c:/users/dell/myjava/source4.txt");
+        FileOutputStream fos=new FileOutputStream("c:/users/dell/myjava/destination.txt");
+        SequenceInputStream sis=new SequenceInputStream(fis1,fis2);
+        try(fis1;fis2;fos;sis)
+        {
+            int x;
+            while((x=sis.read())!=-1)
+            {
+                fos.write(x);
+            }
+        }
+
     }
 }
