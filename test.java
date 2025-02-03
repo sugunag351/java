@@ -1,44 +1,36 @@
-package serialization;
-import java.io.*;
-class student implements Serializable
+package staticStudentRollNumber;
+import java.util.Date;
+class student
 {
-   private int rollno;
-   private String name;
-   private float avg;
-    private String dept;
-    public static int data=10;
-    public transient int t;
-    public student()
+    private String rollno;
+    private static  int count=1;
+    private String assingrollno()
     {
-
+        Date d=new Date();
+        String rn="univ_"+(d.getYear()+1900)+"_"+count;
+        count++;
+        return rn;
     }
-    public student(int r,String n,float a,String d)
+    student()
     {
-        rollno=r;
-        name=n;
-        dept=d;
-        avg=a;
-        data=500;
-        t=500;
+        rollno=assingrollno();
     }
-    public String toString()
+    public String getrollno()
     {
-        return "student details:"+
-                "\nroll:"+rollno+
-                "\nNmae:"+name+
-                "\nAverage:"+avg+
-                "\nDept:"+dept+
-                "\nData:"+data+
-                "\nTransient:"+t+"\n";
+        return rollno;
     }
 }
-public class test
-{
-    public static void main(String args[])throws Exception
+public class test {
+    public static void main(String args[])
     {
-       FileInputStream fos=new FileInputStream("c:/users/dell/myjava/his.txt");
-       ObjectInputStream oos=new ObjectInputStream(fos);
-       student s=(student)oos.readObject();
-       System.out.println(s);
+        student s1=new student();
+        student s2=new student();
+        student s3=new student();
+        System.out.println(s1.getrollno());
+        System.out.println(s2.getrollno());
+        System.out.println(s3.getrollno());
+
+
+
     }
 }
