@@ -1,36 +1,18 @@
-package staticStudentRollNumber;
-import java.util.Date;
-class student
+package String_StringBuffer_StringBuilder;
+
+public class test
 {
-    private String rollno;
-    private static  int count=1;
-    private String assingrollno()
+    public static  void  main(String args[])
     {
-        Date d=new Date();
-        String rn="univ_"+(d.getYear()+1900)+"_"+count;
-        count++;
-        return rn;
-    }
-    student()
-    {
-        rollno=assingrollno();
-    }
-    public String getrollno()
-    {
-        return rollno;
-    }
-}
-public class test {
-    public static void main(String args[])
-    {
-        student s1=new student();
-        student s2=new student();
-        student s3=new student();
-        System.out.println(s1.getrollno());
-        System.out.println(s2.getrollno());
-        System.out.println(s3.getrollno());
-
-
+        String s1=new String("hello");
+        StringBuffer s2=new StringBuffer("hello");
+        StringBuilder s3=new StringBuilder("hello");
+        s1.concat(" world");
+        s2.append(" world");
+        s3.append(" world");
+        System.out.println(s1);//immutable
+        System.out.println(s2);//mutable
+        System.out.println(s3);//mutable
 
     }
 }
