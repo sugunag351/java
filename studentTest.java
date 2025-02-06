@@ -1,30 +1,37 @@
-package student;
+package studentTest;
 class student
 {
-   String name;
-   int marks;
+    public int m1,m2,m3,avg;
+    public String name,course,rollno;
+    public int total()
+    {
+        return m1+m2+m3;
+    }
+    public void average()
+    {
+        avg=total()/3;
+        System.out.println("average marks:"+avg);
+    }
+    public void grade()
+    {
+        if(avg>=60)
+        {
+            System.out.println("grade is A:");
+        }
+        else
+        {
+            System.out.println("grade is B:");
+        }
+    }
+    public String toString()
+    {
+        return "\n"+"rollno:"+rollno+"\n"+"name:"+name+"\n"+"course:"+course+"\n";
+    }
 }
 public class studentTest
 {
     public static void main(String args[])
     {
-        student s1=new student();
-        s1.name="suguna";
-        s1.marks=50;
-        student s2=new student();
-        s2.name="soujanya";
-        s2.marks=100;
-        student s3=new student();
-        s3.name="anusha";
-        s3.marks=97;
-        student students[]=new student[3];
-        students[0]=s1;
-        students[1]=s2;
-        students[2]=s3;
-        for(int i=0;i<students.length;i++)
-        {
-            System.out.println(students[i].name+":"+students[i].marks);
-        }
 
     }
 }
